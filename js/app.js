@@ -32,6 +32,8 @@ window.onload=function(){
 
                 //validate coin null
                 if(coinTo>0){
+                     //Credenciales
+                    var credentials = btoa("utng995364887:l30nf0qa1hfcdgvl4dlt2sf703");
                     //URL
                     const url = `https://xecdapi.xe.com/v1/convert_to.json/?to=${originF}&from=${convertF}&amount=${coinTo}`;
 
@@ -39,8 +41,7 @@ window.onload=function(){
                     xhr.open("GET", url);
 
                     //Auth
-                    xhr.setRequestHeader("Authorization", "Basic dW5pdmVyc2lkYWR0ZWNub2xvZ2ljYWRlbG5vcnRlZGVndWFuYWp1YXRvMTE0NzIxMzQ3OmdoczNzbTNrZTFqZG92NnRzM212ZzdmN2gy");
-
+                     xhr.setRequestHeader("Authorization", `Basic ${credentials}`);
                     let jsonRes;
                     xhr.onreadystatechange = async function () {
                         if (xhr.readyState === 4) {
